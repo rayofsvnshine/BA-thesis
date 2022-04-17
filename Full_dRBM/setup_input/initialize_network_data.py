@@ -19,18 +19,18 @@ def setup_network():
     """
 
     # For each nodelayer, create four values per node
-    inp_nodes = np.full((4,49), 0.0)
-    mid_nodes = np.full((4,50), 0.0)
-    top_nodes = np.full((4,20), 0.0)
+    inp_nodes = np.full((4,65), 0.0)
+    mid_nodes = np.full((4,70), 0.0)
+    top_nodes = np.full((4,30), 0.0)
 
     # for each node set the final two values as the coordinates (for graphing purposes)
-    for i in range(49):
+    for i in range(65):
         inp_nodes[2,i] = i+4    # x-axis
         inp_nodes[3,i] = 2      # y-axis
-    for i in range(50):
+    for i in range(70):
         mid_nodes[2,i] = i*1+3.5
         mid_nodes[3,i] = 5
-    for i in range(20):
+    for i in range(30):
         top_nodes[2,i] = i*2.3+6
         top_nodes[3,i] = 8
 
@@ -38,8 +38,8 @@ def setup_network():
     all_nodes = [inp_nodes, mid_nodes, top_nodes]
 
     # Setup the connections for all nodes in a matrix
-    inp_mid_connections = np.zeros((49,50))
-    mid_top_connections = np.zeros((50,20))
+    inp_mid_connections = np.zeros((65,70))
+    mid_top_connections = np.zeros((70,30))
     
     # Also combine in a list
     all_connections = [inp_mid_connections, mid_top_connections]
