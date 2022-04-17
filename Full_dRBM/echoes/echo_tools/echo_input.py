@@ -19,8 +19,9 @@ def edge_input_echo(vowel_system, step):
         new_nodes: an array containing the node activations and biases 
         
     """
-    erb = np.linspace(4,28,49)
-    bumb_width = 0.68
+    erb = np.linspace(4,28,65)
+    # don't need bumb_width
+    # bumb_width = 0.68
     radius = 2
 
     if vowel_system == 'five':
@@ -100,7 +101,9 @@ def edge_input_echo(vowel_system, step):
             proto_f2 = 25
 
     # calculate the activation of all nodes on the auditory layer
-    activity = 5.0 * (np.exp(-(erb-f1)**2/(2*bumb_width**2)) + np.exp(-(erb-f2)**2/(2*bumb_width**2))) - 0.5
+    # activity = 5.0 * (np.exp(-(erb-f1)**2/(2*bumb_width**2)) + np.exp(-(erb-f2)**2/(2*bumb_width**2))) - 0.5
+    # removed bumb_width
+    activity = 5.0 * (np.exp(-(erb-f1)**2/(2)) + np.exp(-(erb-f2)**2/(2))) - 0.5
     
     # combine and return all needed variables
     f1f2_act = [f1,f2,activity, proto_f1, proto_f2]
@@ -122,8 +125,9 @@ def random_input_echo(vowel_system):
         new_nodes: an array containing the node activations and biases 
         
     """
-    erb = np.linspace(4,28,49)
-    bumb_width = 0.68
+    erb = np.linspace(4,28,65)
+    # don't need bumb_width
+    # bumb_width = 0.68
 
     if vowel_system == 'five':
         sounds = ['a', 'e', 'i', 'o', 'u']
@@ -168,7 +172,9 @@ def random_input_echo(vowel_system):
         proto_f1 = 7
         proto_f2 = 13
 
-    activity = 5.0 * (np.exp(-(erb-f1)**2/(2*bumb_width**2)) + np.exp(-(erb-f2)**2/(2*bumb_width**2))) - 0.5
+    # activity = 5.0 * (np.exp(-(erb-f1)**2/(2*bumb_width**2)) + np.exp(-(erb-f2)**2/(2*bumb_width**2))) - 0.5
+    # removed bumb_width
+    activity = 5.0 * (np.exp(-(erb-f1)**2/(2)) + np.exp(-(erb-f2)**2/(2))) - 0.5
     f1f2_act = [f1,f2,activity, proto_f1, proto_f2]
 
     return f1f2_act

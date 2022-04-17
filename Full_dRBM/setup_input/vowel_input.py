@@ -16,8 +16,9 @@ def input_vowels(new_nodes, vowel_system):
         
     """
     # Set up parameters
-    erb = np.linspace(4,28,49)
-    bump_width = 0.68
+    erb = np.linspace(4,28,65)
+    # remove "bump_width" as it is not relevant
+    # bump_width = 0.68
 
     # Choose vowel system and pick a random sound from the inventory
     if vowel_system == 'five':
@@ -47,7 +48,8 @@ def input_vowels(new_nodes, vowel_system):
         f2 = np.random.normal(13,1)
 
     # Calculate the activities of the node on the auditory layer
-    activity = 5.0 * (np.exp(-(erb-f1)**2/(2*bump_width**2)) + np.exp(-(erb-f2)**2/(2*bump_width**2))) - 0.5
+    # activity = 5.0 * (np.exp(-(erb-f1)**2/(2*bump_width**2)) + np.exp(-(erb-f2)**2/(2*bump_width**2))) - 0.5
+    activity = 5.0 * (np.exp(-(erb-f1)**2/(2)) + np.exp(-(erb-f2)**2/(2))) - 0.5
     
     # Set the new activitions for all layers (input decides erb, rest is 0.5)
     new_nodes[0][0,:] = activity

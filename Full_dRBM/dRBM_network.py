@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 # Setup the network and set the number of trainingsteps
 new_nodes_connections = setup_network()
-training_steps = 2000
+training_steps = 1000
 
 # Initiate training
 for _ in range(training_steps):

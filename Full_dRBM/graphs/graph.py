@@ -70,14 +70,14 @@ def show_full_network(network_nodes, network_connections):
     
     
     # Plot erb nodes
-    for i in range(49):
-        if i < 49:
+    for i in range(65):
+        if i < 65:
             ax.plot(inp_nodes[2,i], inp_nodes[3,i],
                 'o', mfc= (0.1, 0.2, 1.0, 0.0), mec = 'k', markersize=inp_node_size)
        
         
     # and activations
-    for i in range(49):
+    for i in range(65):
         if inp_nodes[0,i] < 0:
             dot = 'bo'
             color = 'blue'   
@@ -88,7 +88,7 @@ def show_full_network(network_nodes, network_connections):
         ax.plot(inp_nodes[2,i], inp_nodes[3,i], dot, mfc=color, markersize=size)
 
     # Plot Hidden mid nodes
-    for i in range(50):
+    for i in range(70):
         ax.plot(hidden_mid_nodes[2,i], hidden_mid_nodes[3,i], 
             'o', mfc= (0.1, 0.2, 1.0, 0.0), mec = 'k',
             markersize=mid_node_size) 
@@ -106,7 +106,7 @@ def show_full_network(network_nodes, network_connections):
             dot, mfc=color, markersize=size) 
 
     # Plot Hidden top nodes 
-    for i in range(20):
+    for i in range(30):
         ax.plot(hidden_top_nodes[2,i], hidden_top_nodes[3,i],
             'o', mfc= (0.1, 0.2, 1.0, 0.0), mec = 'k',
             markersize=top_node_size)  
@@ -124,7 +124,7 @@ def show_full_network(network_nodes, network_connections):
             dot, mfc=color, markersize=size)  
 
     # add layer labels
-    ax.text(2, 2, 'Auditory\nlayer', ha='right', va='center')
+    ax.text(2, 2, 'Input\nlayer', ha='right', va='center')
     ax.text(2, 5, 'Hidden\nmiddle\nlayer', ha='right', va='center')
     ax.text(2, 8, 'Hidden\ntop\nlayer', ha='right', va='center')
 
@@ -146,7 +146,7 @@ def show_full_network(network_nodes, network_connections):
     ax.set_yticks(ticks=[])
 
     # Setting the background color of the plot
-    ax.axis([2.5, 53.5, 1.7, 8.6])
+    ax.axis([2.5, 74.5, 1.7, 8.6])
     ax.set_facecolor("0.7")
 
     network = fig
