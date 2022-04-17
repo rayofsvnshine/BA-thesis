@@ -24,7 +24,7 @@ def echo_visual(new_nodes, new_connections, vowel_system, input_method):
     # set up coordinate lists and the erb values
     drifts_coord_x = []
     drifts_coord_y = []
-    erb = np.linspace(4,28,49)
+    erb = np.linspace(4,28,65)
 
     # ensure correct activations on mid and top layer
     new_nodes[1][0,:] = 0.5

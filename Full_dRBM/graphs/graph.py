@@ -106,7 +106,7 @@ def show_full_network(network_nodes, network_connections):
             dot, mfc=color, markersize=size) 
 
     # Plot Hidden top nodes 
-    for i in range(30):
+    for i in range(35):
         ax.plot(hidden_top_nodes[2,i], hidden_top_nodes[3,i],
             'o', mfc= (0.1, 0.2, 1.0, 0.0), mec = 'k',
             markersize=top_node_size)  
@@ -130,23 +130,16 @@ def show_full_network(network_nodes, network_connections):
 
     # ERB text axis
     text_y = 1.4
-    ax.text(3.3,text_y, '[', ha='center')
-    ax.text(4,text_y, '4', ha='center')
-    ax.text(10,text_y, '7', ha='center')
-    ax.text(16,text_y, '10', ha='center')
-    ax.text(22,text_y, '13', ha='center')
-    ax.text(28,text_y, '16', ha='center')
-    ax.text(34,text_y, '19', ha='center')
-    ax.text(40,text_y, '22', ha='center')
-    ax.text(46,text_y, '25', ha='center')
-    ax.text(52,text_y, '28', ha='center')
-    ax.text(28,1.15, 'basilar frequency (ERB)', ha='center')
+    ax.text(25,text_y, 'Phoneme nodes', ha='center')
+    ax.text(60,text_y, 'Lexical nodes', ha='center')
+    ax.text(80,0.9, 'Morpho-\nsyntactic\nnodes', ha='center')
+    
     # remove all ticks
     ax.set_xticks(ticks=[])
     ax.set_yticks(ticks=[])
 
     # Setting the background color of the plot
-    ax.axis([2.5, 74.5, 1.7, 8.6])
+    ax.axis([2.5, 85.5, 1.7, 8.6])
     ax.set_facecolor("0.7")
 
     network = fig
