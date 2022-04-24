@@ -23,14 +23,15 @@ def echo_drift(new_nodes, new_connections, vowel_system, input_method):
     
     """
     # set steps depending on code goal
-    if vowel_system == 'five':
-        steps = 1000
-    elif vowel_system == 'four':
-        steps = 800
-    elif vowel_system == 'five_spec':
-        steps = 400
-    elif vowel_system == 'four_spec':
-        steps = 200
+    # if vowel_system == 'five':
+    #     steps = 1000
+    # elif vowel_system == 'four':
+    #     steps = 800
+    # elif vowel_system == 'five_spec':
+    #     steps = 400
+    # elif vowel_system == 'four_spec':
+    #     steps = 200
+    steps = 1000
     
     # set up coordinate lists and the erb values
     inp_dists = []
