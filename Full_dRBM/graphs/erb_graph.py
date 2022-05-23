@@ -32,12 +32,12 @@ def show_erb_layer(network_nodes):
     inp_node_size = 15
 
     # Plot erb nodes
-    for i in range(65):
+    for i in range(89):
         ax.plot(inp_nodes[2,i], inp_nodes[3,i],
                 'o', mfc= (0.1, 0.2, 1.0, 0.0), mec = 'k', markersize=inp_node_size)
        
     # and activations
-    for i in range(65):
+    for i in range(89):
         if inp_nodes[0,i] < 0:
             dot = 'bo'
             color = 'blue'   
