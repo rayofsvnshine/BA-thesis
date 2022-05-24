@@ -1,7 +1,7 @@
 import random
 import numpy as np
 import pandas as pd
-from separate_data import separate_data
+from .separate_data import separate_data
 
 def setup_data(training_type):
     """ This function loads in the dataset
@@ -23,9 +23,9 @@ def setup_data(training_type):
     with open("test_data.csv") as f:
         test_df = pd.read_csv(f, usecols=['translation', 'initial phoneme', 'case', 'plurality', 'definiteness'])
 
-    new_data = separate_data(train_df, test_df, training_type)
+    new_data = separate_data(training_type, (train_df, test_df))
     
-    return (train_df, test_df)
+    return new_data
 
 def input_word(new_nodes, full_dataset):
     """ This function chooses a random input word and changes the 
@@ -34,15 +34,13 @@ def input_word(new_nodes, full_dataset):
         Parameters:
         ----------
         new_nodes: an array containing the node activations and biases 
-        full_dataset: a tuple with two dataframes of all words and their characteristics
+        full_dataset: a dataframe with either training or test data
         
         Returns:
         --------
         new_nodes: an array containing the node activations and biases 
         
     """
-    train_data = full_dataset[0]
-    test_data = full_dataset[1]
 
     random_index = random.choice(full_dataset.index)
     random_word = full_dataset.loc[random_index]

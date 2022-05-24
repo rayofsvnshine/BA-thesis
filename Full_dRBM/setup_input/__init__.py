@@ -5,3 +5,4 @@
 """
 from .initialize_network_data import setup_network
 from .irish_input import setup_data, input_word
+from .separate_data import separate_data
