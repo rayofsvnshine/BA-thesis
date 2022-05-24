@@ -7,13 +7,14 @@ import matplotlib.pyplot as plt
 
 # Setup the network, load data, select network type, and set the number of trainingsteps
 new_nodes_connections = setup_network()
-new_data = setup_data()
+# 'full', 'case', 'det', 'plur'
+training_type = 'full'
+new_data = setup_data(training_type)
 training_steps = 1000
-training_type = 'full' #''
 
 # Initiate training
 for _ in range(training_steps):
-    new_nodes_connections[0] = input_word(new_nodes_connections[0], new_data, training_type)
+    new_nodes_connections[0] = input_word(new_nodes_connections[0], new_data[0])
     new_nodes_connections = one_learning_step(new_nodes_connections[0], new_nodes_connections[1])
 
 # show graph

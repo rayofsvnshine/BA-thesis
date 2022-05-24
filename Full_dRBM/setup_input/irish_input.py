@@ -1,8 +1,9 @@
 import random
 import numpy as np
 import pandas as pd
+from separate_data import separate_data
 
-def setup_data():
+def setup_data(training_type):
     """ This function loads in the dataset
         
         Parameters:
@@ -21,17 +22,18 @@ def setup_data():
     
     with open("test_data.csv") as f:
         test_df = pd.read_csv(f, usecols=['translation', 'initial phoneme', 'case', 'plurality', 'definiteness'])
+
+    new_data = separate_data(train_df, test_df, training_type)
     
     return (train_df, test_df)
 
-def input_word(new_nodes, full_dataset, training_type):
+def input_word(new_nodes, full_dataset):
     """ This function chooses a random input word and changes the 
         activations on the input layer accordingly
         
         Parameters:
         ----------
         new_nodes: an array containing the node activations and biases 
-        training_type: a string to indicate what data is to be used in training vs testing
         full_dataset: a tuple with two dataframes of all words and their characteristics
         
         Returns:
@@ -42,10 +44,8 @@ def input_word(new_nodes, full_dataset, training_type):
     train_data = full_dataset[0]
     test_data = full_dataset[1]
 
-    if training_type == 'full':
-        full_dataset = train_data.append(test_data, ignore_index=True)
-        random_index = random.choice(full_dataset.index)
-        random_word = full_dataset.loc[random_index]
+    random_index = random.choice(full_dataset.index)
+    random_word = full_dataset.loc[random_index]
 
     # select all aspects relevant to the model
     translation = random_word['translation']
