@@ -18,7 +18,7 @@ def random_input_echo(vowel_system):
         new_nodes: an array containing the node activations and biases 
         
     """
-    erb = np.linspace(4,28,65)
+    erb = np.linspace(4,28,89)
     
     f1 = 0
     f2 = 0

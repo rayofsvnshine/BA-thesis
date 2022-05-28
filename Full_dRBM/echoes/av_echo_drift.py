@@ -28,7 +28,7 @@ def echo_drift(new_nodes, new_connections, vowel_system, input_method):
     # set up coordinate lists and the erb values
     inp_dists = []
     echo_dists = []
-    erb = np.linspace(4,28,65)
+    erb = np.linspace(4,28,89)
 
     # ensure correct activations on mid and top layer
     new_nodes[1][0,:] = 0.5

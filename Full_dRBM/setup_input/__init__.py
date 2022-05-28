@@ -4,5 +4,5 @@
     It also contains the code to get the activations on the erb layer for each input sound
 """
 from .initialize_network_data import setup_network
-from .irish_input import setup_data, input_word
+from .irish_input import setup_data, input_word, input_test_word
 from .separate_data import separate_data
