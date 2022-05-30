@@ -14,8 +14,9 @@ def check_activation(nodes):
 
     for index in range(len(activation_layer)):
         node = activation_layer[index]
-        if node >= 5:
+        if node >= 0.5:
             active_node = get_key(index, all_nodes)
-            activated_nodes.append((active_node, node))
+            # activated_nodes.append((active_node, node)) # returns both node name and activation level
+            activated_nodes.append(active_node) # returns only node name
 
     return activated_nodes

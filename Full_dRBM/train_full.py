@@ -13,8 +13,8 @@ new_nodes_connections = setup_network()
 training_type = 'full'
 new_data = setup_data(training_type)
 training_steps = 10000
-# testing_steps = 288*2
-testing_steps = 100
+testing_steps = 288*2
+# testing_steps = 100
 
 # Initiate training
 for _ in range(training_steps):
@@ -36,7 +36,7 @@ test_results = []
 for step in range(testing_steps):
     temp_network = trained_network
     # comp or prod: tests comprehension or production
-    temp_network[0] = input_test_word(trained_network[0], new_data[1], "prod", step)
+    temp_network[0] = input_test_word(trained_network[0], new_data[1], "comp", step)
     temp_network = spread_input(temp_network[0], temp_network[1])
     processed_results = check_activation(temp_network)
     test_results.append(processed_results)
