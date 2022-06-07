@@ -25,18 +25,20 @@ def setup_network():
 
     # for each node set the final two values as the coordinates (for graphing purposes)
     for i in range(89):
+        # x-axis for phoneme, lexical, and morphosyntactic nodes respectively
         if i < 34:
-            inp_nodes[2,i] = i*1.2+4    # x-axis
+            inp_nodes[2,i] = i*1.2+4
         elif i < 82:
             x_ax = ((i - 34) / 2) + 34
-            inp_nodes[2,i] = x_ax*1.2+5.5  # x-axis
+            inp_nodes[2,i] = x_ax*1.2+5.5
         else:
-            inp_nodes[2,i] = (i - 24)*1.2+7 # x-axis
+            inp_nodes[2,i] = (i - 24)*1.2+7
 
+        # y-axis for all nodes
         if i%2 == 1:
-                inp_nodes[3,i] = 2.25   # y-axis
+                inp_nodes[3,i] = 2.25
         else:
-            inp_nodes[3,i] = 2      # y-axis
+            inp_nodes[3,i] = 2
 
     for i in range(70):
         mid_nodes[2,i] = i*1.15+4.2

@@ -13,14 +13,19 @@ new_nodes_connections = setup_network()
 training_type = 'full'
 new_data = setup_data(training_type)
 training_steps = 10000
-testing_steps = 288*2
-# testing_steps = 100
+# testing_steps = 288*2
+testing_steps = 20
 
 # Initiate training
 for _ in range(training_steps):
     new_nodes_connections[0] = input_word(new_nodes_connections[0], new_data[0])
     new_nodes_connections = one_learning_step(new_nodes_connections[0], new_nodes_connections[1])
 
+# reset activations of all layers to 0
+new_nodes_connections[0][0][0,:] = 0.0
+new_nodes_connections[0][1][0,:] = 0.0
+new_nodes_connections[0][2][0,:] = 0.0
+# store trained network
 trained_network = new_nodes_connections
 
 # show graph of trained network
@@ -31,13 +36,15 @@ graph.savefig('pdfs/network_figure.pdf', dpi=600)
 plt.show()
 
 test_results = []
+# comp or prod: tests comprehension or production
+test_direction = "comp"
 
 # Initiate testing
 for step in range(testing_steps):
     temp_network = trained_network
     # comp or prod: tests comprehension or production
-    temp_network[0] = input_test_word(trained_network[0], new_data[1], "comp", step)
-    temp_network = spread_input(temp_network[0], temp_network[1])
+    temp_network[0] = input_test_word(trained_network[0], new_data[1], test_direction, step)
+    temp_network = spread_input(temp_network[0], temp_network[1], test_direction)
     processed_results = check_activation(temp_network)
     test_results.append(processed_results)
 

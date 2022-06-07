@@ -1,23 +1,40 @@
 import numpy as np
 
-def spread_input(new_nodes, new_connections):
+def spread_input(new_nodes, new_connections, test_direction):
     """ This function calculates the activation on the top and middle layer
         after spreading from the other layers, 10 times
     
     Parameters:
     ----------
     new_nodes: an array containing the node activations and biases 
-
     new_connections: an array containing all weights for all connections
-
+    test_direction: ensures either the phoneme or morphosyntax nodes are clamped
 
     Returns:
     --------
-    new_nodes_connections: a list containing the node array and, all with 
+    new_nodes_connections: a list containing the node array and its connections, all with 
         the new values after one spreading activations
     
     """ 
-    # Spread the activation
+    # # Store initially activated nodes for clamping purposes
+    # if test_direction == "comp":
+    #     # clamped_nodes = new_nodes[0][0,:82]
+    #     # new_nodes[0][0,:82] = clamped_nodes[0,:82]
+    #     new_nodes = middle_spread(new_nodes, new_connections)
+    #     # new_nodes[0][0,:82] = clamped_nodes[0,:82]
+    #     new_nodes = top_spread(new_nodes, new_connections)
+    #     new_nodes = middle_spread(new_nodes, new_connections)
+    #     # new_nodes[0][0,:82] = clamped_nodes[0,:82]
+    #     new_nodes = middle_to_bottom_spread(new_nodes, new_connections)
+    #     # new_nodes[0][0,:82] = clamped_nodes
+    # elif test_direction == "prod":
+    #     clamped_nodes = new_nodes
+    #     new_nodes = middle_spread(new_nodes, new_connections)
+    #     new_nodes = top_spread(new_nodes, new_connections)
+    #     new_nodes = middle_spread(new_nodes, new_connections)
+    #     new_nodes = middle_to_bottom_spread(new_nodes, new_connections)
+    #     new_nodes[0][0,82:] = clamped_nodes[0,82:]
+
     new_nodes = middle_spread(new_nodes, new_connections)
     new_nodes = top_spread(new_nodes, new_connections)
     new_nodes = middle_spread(new_nodes, new_connections)
