@@ -61,3 +61,10 @@ def setup_network():
     nodes_connections = [all_nodes, all_connections]
 
     return nodes_connections
+
+def copy_network(network):
+    new_network = []
+    new_network.append([np.copy(network[0][0]),np.copy(network[0][1]),np.copy(network[0][2])])
+    new_network.append([np.copy(network[1][0]),np.copy(network[1][1])])
+
+    return new_network

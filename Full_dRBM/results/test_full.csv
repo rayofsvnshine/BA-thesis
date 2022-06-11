@@ -1,0 +1,5 @@
+Input,Expected Output,Actual Output
+"['eye', 'DAT', 'SG', 'INDEF']",['h'],"['l', 'eye', 'DAT', 'SG', 'INDEF']"
+"['eye', 'DAT', 'PL', 'INDEF']",['h'],"['k', 'eye', 'DAT', 'PL', 'INDEF']"
+"['cow', 'NOM', 'SG', 'INDEF']",['b'],"['l', 'cow', 'NOM', 'SG', 'INDEF']"
+"['cow', 'NOM', 'PL', 'INDEF']",['b'],"['k', 'cow', 'NOM', 'PL', 'INDEF']"
