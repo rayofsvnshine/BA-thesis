@@ -14,7 +14,7 @@ def clamp_nodes(nodes, clamped_nodes, test_direction):
 
     return temp_nodes
 
-def spread_input(new_nodes, new_connections, test_direction):
+def spread_input(new_nodes, new_connections, test_direction=None):
     """ This function calculates the activation on the top and middle layer
         after spreading from the other layers, 10 times
     

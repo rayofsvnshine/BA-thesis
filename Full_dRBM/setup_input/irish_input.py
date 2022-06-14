@@ -29,6 +29,35 @@ def setup_data(training_type):
     
     return new_data
 
+def phoneme_data():
+    """ Overwrites the test data with only the phoneme nodes to use in creating the phoneme matrix.
+
+        Parameters:
+        ----------
+        
+        Returns:
+        --------
+        phonemes: a dataframe containing all phoneme nodes
+    
+    """
+    # read input from csv file
+    with open("input_data.csv") as f:
+        train_df = pd.read_csv(f, usecols=['translation', 'initial phoneme', 'case', 'plurality', 'definiteness'])
+    # read input from csv file
+    with open("test_data.csv") as f:
+        test_df = pd.read_csv(f, usecols=['translation', 'initial phoneme', 'case', 'plurality', 'definiteness'])
+
+    # separate training and test data according to training type
+    new_data = separate_data('full', (train_df, test_df))
+
+    # read input from csv file
+    with open("phonemes_only.csv") as f:
+        phonemes = pd.read_csv(f)
+
+    phoneme_data = (new_data[0], phonemes)
+
+    return phoneme_data
+
 def input_word(new_nodes, full_dataset):
     """ This function chooses a random input word and changes the 
         activations on the input layer accordingly
@@ -136,3 +165,41 @@ def input_test_word(new_nodes, testing_dataset, comp_or_prod, step):
     new_nodes[2][0,:] = 0.0
 
     return new_nodes, nodes, expected_output
+
+def input_phoneme(new_nodes, testing_dataset, step):
+    """ This function chooses a test word and changes the 
+        activations on the input layer accordingly
+        
+        Parameters:
+        ----------
+        new_nodes: an array containing the node activations and biases 
+        testing_dataset: a dataframe with test data
+        step: the current step of the testing cycle
+        
+        Returns:
+        --------
+        new_nodes: an array containing the node activations and biases 
+        
+    """
+    # select the current step's entry in the dataset
+    phoneme = testing_dataset.loc[step, 'Node Label']
+
+    # dictionary of nodes that correspond to the input
+    phoneme_nodes = {"O":0, 'p':1, 'pʲ':2, 'b':3, 'bʲ':4, 'f':5, 'fʲ':6, 'v':7, 'vʲ':8, 'm':9, 'mʲ':10, 
+    't':11, 'tʲ':12, 'd':13, 'dʲ':14, 's':15, 'sʲ':16, 'n':17, 'nʲ':18, 'l':19, 'lʲ':20, 
+    'r':21, 'rʲ':22, 'k':23, 'kʲ':24, 'g':25, 'gʲ':26, 'x':27, 'xʲ':28, 'ɣ':29, 'ɣʲ':30, 
+    'ŋ':31, 'ŋʲ':32, 'h':33}
+
+    # np array with new activation values
+    changed_nodes = np.full((89,), -0.5)
+
+    # select correct node and change activation
+    node_nr = phoneme_nodes[phoneme]
+    changed_nodes[node_nr] = 5.0
+
+    # Set the new activitions for all layers
+    new_nodes[0][0,:] = changed_nodes
+    new_nodes[1][0,:] = 0.0
+    new_nodes[2][0,:] = 0.0
+
+    return new_nodes, phoneme
