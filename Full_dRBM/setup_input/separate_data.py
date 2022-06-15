@@ -19,15 +19,31 @@ def separate_data(training_type, new_data):
         training_data = training_data.append(test_data, ignore_index=True)
         test_data = training_data
     # only select non-nominative forms for training, use nominative forms for testing
-    elif training_type == 'case':
+    elif training_type == 'case_nom':
         training_data = new_data[0]
         test_data = new_data[1]
         nom_train = test_data[test_data['case'] != 'NOM']
         test_data = test_data[test_data['case'] == 'NOM']
         test_data = test_data.reset_index()
         training_data = training_data.append(nom_train, ignore_index=True)
+    # only select non-genitive forms for training, use genitive forms for testing
+    elif training_type == 'case_gen':
+        training_data = new_data[0]
+        test_data = new_data[1]
+        gen_train = test_data[test_data['case'] != 'GEN']
+        test_data = test_data[test_data['case'] == 'GEN']
+        test_data = test_data.reset_index()
+        training_data = training_data.append(gen_train, ignore_index=True)
+    # only select non-dative forms for training, use dative forms for testing
+    elif training_type == 'case_dat':
+        training_data = new_data[0]
+        test_data = new_data[1]
+        dat_train = test_data[test_data['case'] != 'DAT']
+        test_data = test_data[test_data['case'] == 'DAT']
+        test_data = test_data.reset_index()
+        training_data = training_data.append(dat_train, ignore_index=True)
     # only select definite forms for training, use indefinite forms for testing
-    elif training_type == 'det':
+    elif training_type == 'def':
         training_data = new_data[0]
         test_data = new_data[1]
         def_train = test_data[test_data['case'] == 'DEF']

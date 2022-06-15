@@ -5,11 +5,10 @@ from test_functions import spread_input
 
 import csv
 
-# Setup the network, load data, select network type, and set the number of trainingsteps
+# Setup the network, load data, and set the number of training/testing steps
 new_nodes_connections = setup_network()
 new_data = phoneme_data()
-# training_steps = 10000
-training_steps = 1000
+training_steps = 30000
 testing_steps = 34
 
 # Initiate training
@@ -32,8 +31,6 @@ temp_network = []
 for step in range(testing_steps):
     # reset to the unactivated network/variables
     temp_network = copy_network(trained_network)
-    actual_input = ""
-    expected_output = ""
     # input only the needed nodes for testing
     temp_network[0], phoneme = input_phoneme(temp_network[0], new_data[1], step)
     # spread test input
@@ -45,5 +42,5 @@ for step in range(testing_steps):
 # store data in a csv-file
 with open('results/phoneme_activation.csv', 'w', newline='') as myfile:
     wr = csv.writer(myfile)
-    wr.writerow(["Activation levels"])
+    wr.writerow(["Phoneme", "Activation levels"])
     wr.writerows(test_results)

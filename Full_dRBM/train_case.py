@@ -2,20 +2,18 @@
 from learning_phases import one_learning_step
 from setup_input import input_word, input_test_word, setup_data, setup_network, copy_network
 from test_functions import check_activation, spread_input
-from graphs import show_full_network
 
-import matplotlib.pyplot as plt
 import csv
 
 # Setup the network, load data, select network type, and set the number of trainingsteps
 new_nodes_connections = setup_network()
 # 'full', 'case', 'det', 'plur'
-training_type = 'case'
+training_type = 'case_nom'
 new_data = setup_data(training_type)
 training_steps = 10000
 # training_steps = 1000
-testing_steps = 96
-# testing_steps = 4
+# testing_steps = 96
+testing_steps = 576
 
 # Initiate training
 for _ in range(training_steps):
@@ -32,7 +30,7 @@ trained_network = new_nodes_connections
 # create list to store results of testing
 test_results = []
 # comp or prod: tests comprehension or production
-test_direction = "comp"
+test_direction = "prod"
 temp_network = []
 
 # Initiate testing
@@ -50,7 +48,7 @@ for step in range(testing_steps):
     test_results.append([actual_input, expected_output, processed_results])
 
 # store data in a csv-file
-with open('results/test_case.csv', 'w', newline='') as myfile:
+with open('results/test_full_prod.csv', 'w', newline='') as myfile:
     wr = csv.writer(myfile)
     wr.writerow(["Input", "Expected Output", "Actual Output"])
     wr.writerows(test_results)
