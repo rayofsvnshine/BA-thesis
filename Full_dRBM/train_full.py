@@ -28,13 +28,6 @@ def run_model(learner_nr, training_type, training_steps, testing_steps):
     # store trained network
     trained_network = new_nodes_connections
 
-    # # show graph of trained network
-    # graph = show_full_network(trained_network[0], trained_network[1])
-    # plt.tight_layout()
-    # graph.set_size_inches(9.2, 5)
-    # graph.savefig('pdfs/network_figure.pdf', dpi=600)
-    # plt.show()
-
 
     for test_direction in ["comp", "prod"]:
         # create list to store results of testing

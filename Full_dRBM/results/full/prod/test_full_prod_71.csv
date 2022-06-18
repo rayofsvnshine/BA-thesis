@@ -236,7 +236,7 @@ Input,Expected Output,Actual Output
 "['washer (person)', 'DAT', 'PL', 'DEF']",['nʲ'],"['nʲ', 'washer (person)', 'DAT', 'PL', 'DEF']"
 "['complaint', 'GEN', 'PL', 'DEF']",['ŋʲ'],"['gʲ', 'complaint', 'GEN', 'PL', 'DEF']"
 "['deer', 'GEN', 'SG', 'DEF']",['O'],"['fʲ', 'deer', 'GEN', 'SG', 'DEF']"
-"['deer', 'DAT', 'SG', 'INDEF']",['O'],"['fʲ', 'deer', 'DAT', 'SG', 'INDEF']"
+"['deer', 'DAT', 'SG', 'INDEF']",['O'],"['O', 'deer', 'DAT', 'SG', 'INDEF']"
 "['deer', 'DAT', 'PL', 'INDEF']",['O'],"['fʲ', 'deer', 'DAT', 'PL', 'INDEF']"
 "['pepper', 'NOM', 'SG', 'INDEF']",['pʲ'],"['pʲ', 'pepper', 'NOM', 'SG', 'INDEF']"
 "['pepper', 'NOM', 'SG', 'DEF']",['pʲ'],"['pʲ', 'pepper', 'NOM', 'SG', 'DEF']"

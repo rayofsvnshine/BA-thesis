@@ -1,5 +1,5 @@
 Input,Expected Output,Actual Output
-"['eye', 'DAT', 'SG', 'INDEF']",['h'],"['h', 'eye', 'DAT', 'SG', 'INDEF']"
+"['eye', 'DAT', 'SG', 'INDEF']",['h'],"['s', 'eye', 'DAT', 'SG', 'INDEF']"
 "['eye', 'DAT', 'PL', 'INDEF']",['h'],"['s', 'eye', 'DAT', 'PL', 'INDEF']"
 "['cow', 'NOM', 'SG', 'INDEF']",['b'],"['b', 'cow', 'NOM', 'SG', 'INDEF']"
 "['cow', 'NOM', 'PL', 'INDEF']",['b'],"['b', 'cow', 'NOM', 'PL', 'INDEF']"
@@ -143,7 +143,7 @@ Input,Expected Output,Actual Output
 "['cat', 'GEN', 'SG', 'DEF']",['x'],"['k', 'cat', 'GEN', 'SG', 'DEF']"
 "['cat', 'DAT', 'SG', 'INDEF']",['x'],"['k', 'cat', 'DAT', 'SG', 'INDEF']"
 "['cat', 'DAT', 'PL', 'INDEF']",['x'],"['k', 'cat', 'DAT', 'PL', 'INDEF']"
-"['fox', 'DAT', 'SG', 'INDEF']",['h'],"['sʲ', 'fox', 'DAT', 'SG', 'INDEF']"
+"['fox', 'DAT', 'SG', 'INDEF']",['h'],"['h', 'fox', 'DAT', 'SG', 'INDEF']"
 "['fox', 'DAT', 'PL', 'INDEF']",['h'],"['sʲ', 'fox', 'DAT', 'PL', 'INDEF']"
 "['beer', 'NOM', 'SG', 'INDEF']",['bʲ'],"['bʲ', 'beer', 'NOM', 'SG', 'INDEF']"
 "['beer', 'NOM', 'PL', 'INDEF']",['bʲ'],"['bʲ', 'beer', 'NOM', 'PL', 'INDEF']"

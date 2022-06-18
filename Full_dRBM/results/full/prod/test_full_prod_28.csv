@@ -471,7 +471,7 @@ Input,Expected Output,Actual Output
 "['generator', 'NOM', 'SG', 'DEF']",['gʲ'],"['gʲ', 'generator', 'NOM', 'SG', 'DEF']"
 "['generator', 'GEN', 'SG', 'INDEF']",['gʲ'],"['gʲ', 'generator', 'GEN', 'SG', 'INDEF']"
 "['generator', 'GEN', 'SG', 'DEF']",['ɣʲ'],"['gʲ', 'generator', 'GEN', 'SG', 'DEF']"
-"['generator', 'DAT', 'SG', 'INDEF']",['ɣʲ'],"['gʲ', 'generator', 'DAT', 'SG', 'INDEF']"
+"['generator', 'DAT', 'SG', 'INDEF']",['ɣʲ'],"['ɣʲ', 'generator', 'DAT', 'SG', 'INDEF']"
 "['generator', 'DAT', 'SG', 'DEF']",['ŋʲ'],"['gʲ', 'generator', 'DAT', 'SG', 'DEF']"
 "['generator', 'NOM', 'PL', 'INDEF']",['gʲ'],"['gʲ', 'generator', 'NOM', 'PL', 'INDEF']"
 "['generator', 'NOM', 'PL', 'DEF']",['gʲ'],"['gʲ', 'generator', 'NOM', 'PL', 'DEF']"
