@@ -167,7 +167,7 @@ def input_test_word(new_nodes, testing_dataset, comp_or_prod, step):
     return new_nodes, nodes, expected_output
 
 def input_phoneme(new_nodes, testing_dataset, step):
-    """ This function chooses a test word and changes the 
+    """ This function chooses a test phoneme and changes the 
         activations on the input layer accordingly
         
         Parameters:

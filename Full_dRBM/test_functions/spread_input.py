@@ -11,6 +11,8 @@ def clamp_nodes(nodes, clamped_nodes, test_direction):
         temp_nodes = np.append(clamped_nodes[:82], temp_nodes[82:])
     elif test_direction == "prod":
         temp_nodes = np.append(temp_nodes[:34], clamped_nodes[34:])
+    elif test_direction == "phon":
+        temp_nodes = np.append(clamped_nodes[:34], temp_nodes[34:])
 
     return temp_nodes
 

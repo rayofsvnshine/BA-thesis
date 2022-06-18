@@ -8,7 +8,7 @@ import csv
 # Setup the network, load data, and set the number of training/testing steps
 new_nodes_connections = setup_network()
 new_data = phoneme_data()
-training_steps = 30000
+training_steps = 300000
 testing_steps = 34
 
 # Initiate training
@@ -34,7 +34,7 @@ for step in range(testing_steps):
     # input only the needed nodes for testing
     temp_network[0], phoneme = input_phoneme(temp_network[0], new_data[1], step)
     # spread test input
-    temp_network = spread_input(temp_network[0], temp_network[1])
+    temp_network = spread_input(temp_network[0], temp_network[1], "phon")
     # store activated nodes as results
     results = temp_network[0][1][0]
     test_results.append([phoneme, results])

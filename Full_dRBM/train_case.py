@@ -4,6 +4,9 @@ from setup_input import input_word, input_test_word, setup_data, setup_network, 
 from test_functions import check_activation, spread_input
 
 import csv
+# ignores FutureWarning
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
 
 # Setup the network, load data, select network type, and set the number of trainingsteps
 new_nodes_connections = setup_network()
