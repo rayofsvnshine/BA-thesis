@@ -15,8 +15,9 @@ training_type = 'case_nom'
 new_data = setup_data(training_type)
 training_steps = 10000
 # training_steps = 1000
-# testing_steps = 96
-testing_steps = 576
+testing_steps = 96 # case
+# testing_steps = 144 # det/plur
+# testing_steps = 576 # full
 
 # Initiate training
 for _ in range(training_steps):

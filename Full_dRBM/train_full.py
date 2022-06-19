@@ -18,7 +18,9 @@ def run_model(learner_nr, training_type, training_steps, testing_steps):
 
     # Initiate training
     for _ in range(training_steps):
+        # choose random input word and activate corresponding nodes
         new_nodes_connections[0] = input_word(new_nodes_connections[0], new_data[0])
+        # train network on this word
         new_nodes_connections = one_learning_step(new_nodes_connections[0], new_nodes_connections[1])
 
     # reset activations of all layers to 0
@@ -28,7 +30,7 @@ def run_model(learner_nr, training_type, training_steps, testing_steps):
     # store trained network
     trained_network = new_nodes_connections
 
-
+    # test both production and comprehension for the same model
     for test_direction in ["comp", "prod"]:
         # create list to store results of testing
         test_results = []
@@ -40,7 +42,7 @@ def run_model(learner_nr, training_type, training_steps, testing_steps):
             temp_network = copy_network(trained_network)
             actual_input = ""
             expected_output = ""
-            # input only the needed nodes for testing
+            # input only the needed nodes for testing and store input & expected output
             temp_network[0], actual_input, expected_output = input_test_word(temp_network[0], new_data[1], test_direction, step)
             # spread test input
             temp_network = spread_input(temp_network[0], temp_network[1], test_direction)
@@ -58,15 +60,19 @@ def run_model(learner_nr, training_type, training_steps, testing_steps):
 
 def main():
     # set parameters
-    # 'full', 'case_nom', 'case_gen', 'case_dat', 'def', 'plur'
-    training_type = 'full'
-    training_steps = 100000
-    # training_steps = 1000
-    testing_steps = 576
-    # testing_steps = 10
-    # comp or prod: tests comprehension or production
-    # test_direction = "prod"
+    # for all types except 'full', the name indicates which group is left out of training
+    # 'full', 'case_nom', 'case_gen', 'case_dat', 'def', 'indef', 'plur', 'sing'
+    training_type = 'case_nom'
 
+    training_steps = 100000 # for proper training
+    # training_steps = 1000 # for trial runs
+
+    # testing_steps = 576 # full
+    testing_steps = 96 # case
+    # testing_steps = 144 # det/plur
+    # testing_steps = 10 # for trial runs
+
+    # train and test 100 learners
     for i in range(100):
         run_model(i, training_type, training_steps, testing_steps)
 

@@ -42,22 +42,38 @@ def separate_data(training_type, new_data):
         test_data = test_data[test_data['case'] == 'DAT']
         test_data = test_data.reset_index()
         training_data = training_data.append(dat_train, ignore_index=True)
-    # only select definite forms for training, use indefinite forms for testing
+    # only select indefinite forms for training, use definite forms for testing
     elif training_type == 'def':
         training_data = new_data[0]
         test_data = new_data[1]
-        def_train = test_data[test_data['case'] == 'DEF']
-        test_data = test_data[test_data['case'] != 'DEF']
+        def_train = test_data[test_data['case'] != 'DEF']
+        test_data = test_data[test_data['case'] == 'DEF']
         test_data = test_data.reset_index()
         training_data = training_data.append(def_train, ignore_index=True)
+    # only select definite forms for training, use indefinite forms for testing
+    elif training_type == 'indef':
+        training_data = new_data[0]
+        test_data = new_data[1]
+        indef_train = test_data[test_data['case'] != 'INDEF']
+        test_data = test_data[test_data['case'] == 'INDEF']
+        test_data = test_data.reset_index()
+        training_data = training_data.append(indef_train, ignore_index=True)
     # only use singular forms for training, use plural forms for testing
     elif training_type == 'plur':
         training_data = new_data[0]
         test_data = new_data[1]
-        plur_train = test_data[test_data['case'] == 'SG']
-        test_data = test_data[test_data['case'] != 'SG']
+        plur_train = test_data[test_data['case'] != 'PL']
+        test_data = test_data[test_data['case'] == 'PL']
         test_data = test_data.reset_index()
         training_data = training_data.append(plur_train, ignore_index=True)
+    # only use plural forms for training, use singular forms for testing
+    elif training_type == 'sing':
+        training_data = new_data[0]
+        test_data = new_data[1]
+        sing_train = test_data[test_data['case'] != 'SG']
+        test_data = test_data[test_data['case'] == 'SG']
+        test_data = test_data.reset_index()
+        training_data = training_data.append(sing_train, ignore_index=True)
 
     # returns the training and test data
     return (training_data, test_data)
