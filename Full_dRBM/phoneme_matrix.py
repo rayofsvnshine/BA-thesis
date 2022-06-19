@@ -5,12 +5,15 @@ from test_functions import spread_input
 
 import csv
 
+# ignores FutureWarning
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
+
 
 def run_model(learner_nr, training_steps, testing_steps):
     # Setup the network, load data, and set the number of training/testing steps
     new_nodes_connections = setup_network()
     new_data = phoneme_data()
-
 
     # Initiate training
     for _ in range(training_steps):
@@ -54,8 +57,9 @@ def main():
     training_steps = 100000
     testing_steps = 34
 
-    for i in range(100):
+    for i in range(15):
         run_model(i, training_steps, testing_steps)
+
 
 if __name__ == "__main__":
     main()
