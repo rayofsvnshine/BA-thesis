@@ -1,3 +1,4 @@
+from audioop import avg
 import pandas as pd
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
@@ -22,18 +23,20 @@ def main():
         for i in range(34):
             phonemes[i] = np.fromstring(phon_results['Activation levels'].iloc[i], sep=',')
 
+        phonemes = np.round(phonemes, 15)
         avg_phonemes = np.add(avg_phonemes, phonemes)
-    
+
     avg_phonemes = np.divide(avg_phonemes, 100)
+    avg_phonemes = np.round(avg_phonemes, 15)
 
     # calculate cosine similarity and round to 15 decimals
-    sim_mat = cosine_similarity(avg_phonemes, avg_phonemes)
+    sim_mat = cosine_similarity(phonemes, phonemes)
     sim_mat = np.round(sim_mat, 15)
 
     # turn results into a dataframe
     out_df = pd.DataFrame(sim_mat,columns= phon_results['Phoneme'].values, index= phon_results['Phoneme'].values)
     # store results
-    out_df.to_csv('../results/processed/cosine_matrix.csv',',')
+    out_df.to_csv('../results/processed/cosine_matrix_100000steps.csv',',')
 
 
 

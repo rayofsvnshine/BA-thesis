@@ -57,7 +57,7 @@ def main():
     training_steps = 100000
     testing_steps = 34
 
-    for i in range(15):
+    for i in range(75,100):
         run_model(i, training_steps, testing_steps)
 
 
