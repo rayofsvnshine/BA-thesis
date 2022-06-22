@@ -62,7 +62,7 @@ def main():
     # set parameters
     # for all types except 'full', the name indicates which group is left out of training
     # 'full', 'case_nom', 'case_gen', 'case_dat', 'def', 'indef', 'plur', 'sing'
-    training_type = 'def'
+    training_type = 'indef'
 
     training_steps = 100000 # for proper training
     # training_steps = 1000 # for trial runs
