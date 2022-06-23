@@ -62,7 +62,7 @@ def main():
     # set parameters
     # for all types except 'full', the name indicates which group is left out of training
     # 'full', 'case_nom', 'case_gen', 'case_dat', 'def', 'indef', 'plur', 'sing'
-    training_type = 'plur'
+    training_type = 'sing'
 
     training_steps = 100000 # for proper training
     # training_steps = 1000 # for trial runs
@@ -73,7 +73,7 @@ def main():
     # testing_steps = 10 # for trial runs
 
     # train and test 100 learners
-    for i in range(10):
+    for i in range(100):
         run_model(i, training_type, training_steps, testing_steps)
 
 if __name__ == "__main__":
