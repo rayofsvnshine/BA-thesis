@@ -1,17 +1,21 @@
-# import all needed packages
+"""
+Trains the Neural Network, then analyses the phoneme activations and saves the output.
+Number of models to train, number of training steps,
+and number of testing steps are all determined in the main function.
+"""
+
 from learning_phases import one_learning_step
 from setup_input import input_word, input_phoneme, phoneme_data, setup_network, copy_network
 from test_functions import spread_input
 
 import csv
-
 # ignores FutureWarning
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 
 def run_model(learner_nr, training_steps, testing_steps):
-    # Setup the network, load data, and set the number of training/testing steps
+    # Setup the network and load data
     new_nodes_connections = setup_network()
     new_data = phoneme_data()
 
@@ -57,7 +61,7 @@ def main():
     training_steps = 100000
     testing_steps = 34
 
-    for i in range(75,100):
+    for i in range(100):
         run_model(i, training_steps, testing_steps)
 
 

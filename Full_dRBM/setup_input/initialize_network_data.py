@@ -13,7 +13,7 @@ def setup_network():
 
     Returns:
     --------
-    nodes_connections: an list containing two lists for nodes and connections
+    nodes_connections: a list containing two lists for nodes and connections
             each with an array of data for each layer
     
     """
@@ -63,6 +63,9 @@ def setup_network():
     return nodes_connections
 
 def copy_network(network):
+    """
+    Copies the network into a new variable.
+    """
     new_network = []
     new_network.append([np.copy(network[0][0]),np.copy(network[0][1]),np.copy(network[0][2])])
     new_network.append([np.copy(network[1][0]),np.copy(network[1][1])])

@@ -38,7 +38,7 @@ def middle_spread(new_nodes, new_connections):
 
     Returns:
     --------
-    new_nodes_connections: a list containing the node array and, all with 
+    new_nodes: a list containing the node array and, all with 
         the new values after one spreading activations
     
     """
@@ -67,7 +67,7 @@ def top_spread(new_nodes, new_connections):
 
     Returns:
     --------
-    new_nodes_connections: a list containing the node array and, all with 
+    new_nodes: a list containing the node array and, all with 
         the new values after one spreading activations
     
     """

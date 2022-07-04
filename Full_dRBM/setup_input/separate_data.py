@@ -1,5 +1,6 @@
 def separate_data(training_type, new_data):
-    """ This function separates the test data from the training data, returning a new tuple with correctly sorted test and training data
+    """ This function separates the test data from the training data,
+        returning a new tuple with correctly sorted test and training data
         
         Parameters:
         ----------

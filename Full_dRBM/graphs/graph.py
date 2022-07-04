@@ -1,17 +1,15 @@
-# packages 
 import matplotlib.pyplot as plt
-from matplotlib.pyplot import figure
 
-def show_full_network(network_nodes, network_connections):
+def show_full_network(all_nodes, all_connection):
     """ This outputs the data to show the network
     
     Parameters:
     ----------
-    network_nodes: a dictionary containing all nodes in the network 
+    all_nodes: a list containing all nodes in the network 
         with their coordinates, activation and bias values
 
-    network_connections: a dictionary containg all connections as 
-            keys and their parent-node coordinates and weights
+    all_connection: a list containg all connections 
+            and their parent-node coordinates and weights
 
 
     Returns:
@@ -19,10 +17,6 @@ def show_full_network(network_nodes, network_connections):
     ax: data to show the network
     
     """
-    
-    # import data
-    all_nodes = network_nodes
-    all_connection = network_connections
 
     # set-up variables for legibility 
     inp_nodes = all_nodes[0]
@@ -38,6 +32,7 @@ def show_full_network(network_nodes, network_connections):
     # Plot everything ##
     ####################
     fig, ax = plt.subplots()
+
     #### plot connections ####
     # inp-mid Connections
     for t, row in enumerate(inp_mid_links):
@@ -128,11 +123,32 @@ def show_full_network(network_nodes, network_connections):
     ax.text(2, 5, 'Hidden\nmiddle\nlayer', ha='right', va='center')
     ax.text(2, 8, 'Hidden\ntop\nlayer', ha='right', va='center')
 
-    # ERB text axis
-    text_y = 1.4
+    # Input text axis
+    text_y = 0.5
     ax.text(25,text_y, 'Phoneme nodes', ha='center')
     ax.text(60,text_y, 'Lexical nodes', ha='center')
-    ax.text(80,0.9, 'Morpho-\nsyntactic\nnodes', ha='center')
+    ax.text(80,text_y, 'Morpho-syntactic nodes', ha='center')
+
+    # add Input layer's numbers
+    for i in range(89):
+        # decide x/y coordinates based on associated nodes
+        if i % 2 == 1:
+            text_y = 1.4
+        else:
+            text_y = 1.15
+
+        if i < 34:
+            text_x = i*1.2+3.8
+            font_size = 8
+        elif i < 82:
+            text_x = ((i - 34) / 2) + 34
+            text_x = text_x*1.2+5.3
+            font_size = 4.8
+        else:
+            text_x = (i - 24)*1.2+6.8
+            font_size = 8
+
+        ax.text(text_x,text_y,i, fontsize=font_size)
     
     # remove all ticks
     ax.set_xticks(ticks=[])
@@ -142,5 +158,4 @@ def show_full_network(network_nodes, network_connections):
     ax.axis([2.5, 85.5, 1.7, 8.6])
     ax.set_facecolor("0.7")
 
-    network = fig
-    return network
+    return fig

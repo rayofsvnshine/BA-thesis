@@ -5,13 +5,10 @@ def hebbian_learning_nodes(new_nodes, lr):
     
     Parameters:
     ----------
-    network_nodes: a dictionary containing all nodes in the network 
+    new_nodes: a list containing both the nodes and connections 
         with their coordinates, activation and bias values
 
-    network_connections: a dictionary containg all connections as keys 
-        and their parent-node coordinates and weights
-
-    learning_rate: a float value for the learning rate
+    lr: a float value for the learning rate
 
     Returns:
     --------

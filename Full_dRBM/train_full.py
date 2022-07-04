@@ -1,10 +1,12 @@
-# import all needed packages
+"""
+Trains the Neural Network, then runs tests and saves the output.
+Manner of training, number of models to train, number of training steps,
+and number of testing steps are all determined in the main function.
+"""
 from learning_phases import one_learning_step
 from setup_input import input_word, input_test_word, setup_data, setup_network, copy_network
 from test_functions import check_activation, spread_input
-# from graphs import show_full_network
 
-# import matplotlib.pyplot as plt
 import csv
 
 # ignores FutureWarning
@@ -12,6 +14,20 @@ import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 def run_model(learner_nr, training_type, training_steps, testing_steps):
+    """
+    Runs the neural network, training and testing. Saves output to csv files.
+
+    Parameters:
+    ----------
+    learner_nr: the number of the Neural Network being trained
+    training_type: the type of training being done
+    training_steps: number of steps for training
+    testing_steps: number of steps for testing
+
+    Returns:
+    --------
+
+    """
     # Setup the network, load data, select network type, and set the number of trainingsteps
     new_nodes_connections = setup_network()
     new_data = setup_data(training_type)

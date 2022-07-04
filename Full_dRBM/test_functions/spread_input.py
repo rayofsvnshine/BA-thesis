@@ -1,20 +1,10 @@
+"""
+Spreads activations of input layer throughout the entire
+neural network.
+"""
+
 import numpy as np
 
-def clamp_nodes(nodes, clamped_nodes, test_direction):
-    """ This function returns the nodes to the values of the clamped nodes
-        for either the lexical and phoneme nodes (comprehension) or the
-        lexical and morphosyntactic nodes (production)
-    """
-    temp_nodes = nodes[0][0]
-
-    if test_direction == "comp":
-        temp_nodes = np.append(clamped_nodes[:82], temp_nodes[82:])
-    elif test_direction == "prod":
-        temp_nodes = np.append(temp_nodes[:34], clamped_nodes[34:])
-    elif test_direction == "phon":
-        temp_nodes = np.append(clamped_nodes[:34], temp_nodes[34:])
-
-    return temp_nodes
 
 def spread_input(new_nodes, new_connections, test_direction=None):
     """ This function calculates the activation on the top and middle layer
@@ -45,6 +35,22 @@ def spread_input(new_nodes, new_connections, test_direction=None):
     new_nodes_connections = [new_nodes, new_connections]
 
     return new_nodes_connections
+
+def clamp_nodes(nodes, clamped_nodes, test_direction):
+    """ This function returns the nodes to the values of the clamped nodes
+        for either the lexical and phoneme nodes (comprehension) or the
+        lexical and morphosyntactic nodes (production)
+    """
+    temp_nodes = nodes[0][0]
+
+    if test_direction == "comp":
+        temp_nodes = np.append(clamped_nodes[:82], temp_nodes[82:])
+    elif test_direction == "prod":
+        temp_nodes = np.append(temp_nodes[:34], clamped_nodes[34:])
+    elif test_direction == "phon":
+        temp_nodes = np.append(clamped_nodes[:34], temp_nodes[34:])
+
+    return temp_nodes
 
 def middle_spread(new_nodes, new_connections):
     """ This function calculates the activation on the middle layer

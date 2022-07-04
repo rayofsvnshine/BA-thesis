@@ -9,7 +9,7 @@ def anti_hebbian_learning_nodes(new_nodes):
 
     Returns:
     --------
-    new_nodes: an array containing the node activations and biases 
+    new_nodes: an array containing the new node activations and biases 
     
     """
     # Bias changes
